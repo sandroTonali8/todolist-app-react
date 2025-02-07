@@ -1,0 +1,29 @@
+$margin: 10px;
+$inputWidth: 200px;
+
+.card-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  .form-container {
+    width: $inputWidth * 2;
+  
+    .todo-form {
+      margin: $margin;
+      white-space: nowrap; // 防止子元素换行
+      text-align: center;
+    
+      .todo-input {
+        // display: inline-block;
+        width: $inputWidth; // 根据需要设置宽度
+        margin-right: $margin;
+      }
+  
+      .submit-button {
+        width: $inputWidth / 3;
+      }
+    }
+  }
+}
