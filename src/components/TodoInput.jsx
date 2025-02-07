@@ -18,17 +18,22 @@ export default function TodoInput({ todo, setTodo, todoText, setTodoText, dateTe
     e.preventDefault()
     if (todoText === '') alert('请输入内容')
     else if (dateText === '') alert('请选择日期')
-    else if (todoRef.current.includes(todoText)) alert('任务已存在')
     else {
-      alert('提交成功')
       const newTodo = {
+        id: Date.now(),
         text: todoText,
         date: dateText,
       }
-      flushSync(() => {
-        setTodo([...todoRef.current, newTodo])
-      })
-      setTodoText('')
+      if (todoRef.current.some((item) => 
+        item.text === newTodo.text && item.date === newTodo.date
+      )) alert('任务已存在')
+      else {
+        alert('提交成功')
+        flushSync(() => {
+          setTodo([...todoRef.current, newTodo])
+        })
+        setTodoText('')
+      }
     }
   }
 

@@ -1,16 +1,21 @@
-import { List } from 'antd'
+import InfiniteScroll from 'react-infinite-scroll-component'
+import { Divider } from 'antd'
 
 export default function TodoList({ todo }) {
-  console.log(todo)
   return (
-    <List
-      bordered
-      dataSource={todo}
-      renderItem={(item) => {
-        <List.Item>
-          {item}
-        </List.Item>
-      }}
-    />
+    <div className='list-container'>
+      <InfiniteScroll
+        dataLength={todo.length}
+      >
+        <div>
+          {todo.map(todo => (
+            <>
+              <span key={todo.id}>{todo.date} - {todo.text}</span>
+              <Divider className='divider'/>
+            </>
+          ))}
+        </div>
+      </InfiniteScroll>
+    </div>
   )
 }
