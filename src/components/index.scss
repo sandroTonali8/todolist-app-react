@@ -31,13 +31,38 @@ $inputWidth: 200px;
         overflow: auto;
 
         div {
-          span {
-            display: block;
-            margin: $margin 0 $margin $margin;
-            text-align: left;
+          overflow-x: hidden;
+
+          .every-todo {
+            span {
+              display: flex;
+              margin: $margin 0 $margin $margin;
+              text-align: left;
+              align-items: center;
+              justify-content: space-between;
+
+              h4 {
+                margin: $margin/2 0;
+              }
+
+              .right-elements {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+
+                .ant-radio-wrapper {
+                  margin: 0;
+                }
+  
+                .ant-btn {
+                  border: none;
+                  margin: 0;
+                }
+              }
+            }
           }
 
-          .divider {
+          .ant-divider {
             margin: $margin 0;
           }
         }
