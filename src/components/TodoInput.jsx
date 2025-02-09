@@ -23,6 +23,7 @@ export default function TodoInput({ todo, setTodo, todoText, setTodoText, dateTe
         id: Date.now(),
         text: todoText,
         date: dateText,
+        done: false
       }
       if (todoRef.current.some((item) => 
         item.text === newTodo.text && item.date === newTodo.date
